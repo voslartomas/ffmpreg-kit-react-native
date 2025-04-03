@@ -51,7 +51,12 @@ Pod::Spec.new do |s|
   s.subspec 'https' do |ss|
       ss.source_files      = '**/FFmpegKitReactNativeModule.m',
                              '**/FFmpegKitReactNativeModule.h'
-      ss.dependency 'ffmpeg-kit-ios-https', "6.0"
+      #ss.dependency 'ffmpeg-kit-ios-https', "6.0"
+      s.prepare_command = <<-CMD
+          cd ffmpreg-kit || exit $?
+          ./ios.sh --xcframework || exit $?
+      CMD
+      s.vendored_frameworks = "ffmpreg-kit/ios/prebuilt/bundle-apple-xcframework-ios/*.xcframework"
       ss.ios.deployment_target = '12.1'
   end
 
