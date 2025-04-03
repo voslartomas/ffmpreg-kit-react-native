@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source       = { :git => "https://github.com/arthenica/ffmpeg-kit.git", :tag => "react.native.v#{s.version}" }
+  s.source       = { :git => "https://github.com/lufinkey/ffmpreg-kit-react-native.git", :tag => "react.native.v#{s.version}" }
 
   s.default_subspec   = 'https'
 
@@ -52,11 +52,11 @@ Pod::Spec.new do |s|
       ss.source_files      = '**/FFmpegKitReactNativeModule.m',
                              '**/FFmpegKitReactNativeModule.h'
       #ss.dependency 'ffmpeg-kit-ios-https', "6.0"
-      s.prepare_command = <<-CMD
+      ss.prepare_command = <<-CMD
           cd ffmpreg-kit || exit $?
           ./ios.sh --xcframework || exit $?
       CMD
-      s.vendored_frameworks = "ffmpreg-kit/prebuilt/bundle-apple-xcframework-ios/*.xcframework"
+      ss.vendored_frameworks = "ffmpreg-kit/prebuilt/bundle-apple-xcframework-ios/*.xcframework"
       ss.ios.deployment_target = '12.1'
   end
 
