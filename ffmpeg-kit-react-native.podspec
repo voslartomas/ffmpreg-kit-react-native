@@ -56,7 +56,7 @@ Pod::Spec.new do |s|
           cd ffmpreg-kit || exit $?
           ./ios.sh --xcframework || exit $?
       CMD
-      s.vendored_frameworks = "ffmpreg-kit/ios/prebuilt/bundle-apple-xcframework-ios/*.xcframework"
+      s.vendored_frameworks = "ffmpreg-kit/prebuilt/bundle-apple-xcframework-ios/*.xcframework"
       ss.ios.deployment_target = '12.1'
   end
 
