@@ -20,6 +20,11 @@ Pod::Spec.new do |s|
 
   s.dependency "React-Core"
 
+  s.prepare_command = <<-CMD
+      cd ffmpreg-kit || exit $?
+      ./ios.sh --xcframework || exit $?
+  CMD
+
   s.subspec 'min' do |ss|
       ss.source_files      = '**/FFmpegKitReactNativeModule.m',
                              '**/FFmpegKitReactNativeModule.h'
@@ -52,10 +57,6 @@ Pod::Spec.new do |s|
       ss.source_files      = '**/FFmpegKitReactNativeModule.m',
                              '**/FFmpegKitReactNativeModule.h'
       #ss.dependency 'ffmpeg-kit-ios-https', "6.0"
-      ss.prepare_command = <<-CMD
-          cd ffmpreg-kit || exit $?
-          ./ios.sh --xcframework || exit $?
-      CMD
       ss.vendored_frameworks = "ffmpreg-kit/prebuilt/bundle-apple-xcframework-ios/ffmpegkit.xcframework"
       ss.ios.deployment_target = '12.1'
   end
