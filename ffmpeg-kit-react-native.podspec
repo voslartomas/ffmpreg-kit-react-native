@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.prepare_command = <<-CMD
       cd ffmpreg-kit || exit $?
-      ./ios.sh --enable-gpl --enable-x264 --xcframework || exit $?
+      ./ios.sh --enable-gpl --enable-ios-videotoolbox --enable-x264 --xcframework || exit $?
   CMD
 
   s.subspec 'min' do |ss|
